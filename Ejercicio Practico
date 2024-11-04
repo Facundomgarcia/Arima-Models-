@@ -1,0 +1,35 @@
+#%% Importacion de los Paquetes.
+import pandas as pd
+import numpy as np # for linear algebra
+import math # for math operations 
+import seaborn as sns # for plotting
+
+# data preprocessing
+from sklearn.preprocessing import LabelEncoder
+
+# visualization libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+from matplotlib import patches
+import matplotlib.pyplot as plt # for plotting
+import squarify # for tree maps
+
+# Mlforecast
+# ==============================================================================
+from mlforecast import MLForecast
+from window_ops.expanding import expanding_mean
+from window_ops.rolling import rolling_mean
+from window_ops.ewm import ewm_mean
+from mlforecast.target_transforms import Differences
+
+from mlforecast.utils import PredictionIntervals
+from utilsforecast.plotting import plot_series
+from utilsforecast.preprocessing import fill_gaps
+
+#%% Coleta dos dados.
+from bcb import sgs
+
+# Obter os dados da série do Índice de Volume de Vendas de SP do BCB
+varejo2 = sgs.get({'volume_vendas': 1475}, start='2000-01-01', end='2022-12-31')
+print(varejo2)
+
